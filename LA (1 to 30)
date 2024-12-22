@@ -1,0 +1,573 @@
+### LA#1
+class Heroes:
+    name = "Layla"
+
+marksman = Heroes()
+print(marksman.name)
+
+### LA#2
+class Character:
+    def __init__(self, name, role):
+        self.name = name
+        self.role = role
+
+MLhero = Character("Miya", "Marksman")
+print(MLhero.name, MLhero.role)
+
+### LA#3
+class Character:
+    def __init__(self, name, role):
+        self.name = name
+        self.role = role
+
+    def describe(self):
+        print(f'{self.name} is a {self.role} hero.')
+
+student = Character("Miya", "Marksman")
+student.describe()
+
+### LA#4
+class Character:
+    def __init__(self, name, role):
+        self.name = name
+        self.role = role
+
+    def __str__(self):
+        return f'{self.name} is a {self.role} hero.'
+
+student = Character("Miya", "Marksman")
+print(student)
+
+### LA#5
+def hero(name, role):
+    print(f"{name} is a {role} hero.")
+
+hero("Layla", "Marksman")
+
+### LA#6
+class Laptop:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+    def laptop_info(self):
+        return f"Brand: {self.brand}, Model: {self.model}"
+
+student = Laptop("Asus", "Macbook")
+print(student.laptop_info())
+
+### LA#7
+class Car:
+    def __init__(self, brand, color):
+        self.brand = brand
+        self.color = color
+
+car1 = Car("Ferrari", "Red")
+print("First Car Brand and Color: ", car1.brand, car1.color)
+car1.color = "Blue"
+print("Updated Color of First Car: ", car1.color)
+car2 = Car("Lamborghini", "Green")
+print("Second Car Brand and Color: ", car2.brand, car2.color)
+car1.color = "Pink"
+print("First Car Brand and Color: ", car1.brand, car1.color)
+car2.color = "Rainbow"
+print("Second Car Brand and Color: ", car2.brand, car2.color)
+
+### LA#8
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+Book1 = Book("A Gentle Reminder", "Bianca Sparacino")
+print("First Book Title and Author: ", Book1.title, Book1.author)
+Book2 = Book("Florante At Laura", "Francisco Balagtas")
+print("Second Book Title and Author: ", Book2.title, Book2.author)
+
+### LA#9
+class Car:
+    def __init__(self, brand):
+        self.brand = brand
+
+    def __str__(self):
+        return f"This car is a {self.brand}"
+
+Kotsi = Car("Toyota")
+print(Kotsi)
+del Kotsi
+
+### LA#10
+class Vehicle:
+    def __init__(self, brand, model, fuel_type):
+        self.brand = brand
+        self.model = model
+        self.fuel_type = fuel_type
+
+    def describeVehicle(self):
+        print(f"My car Brand {self.brand} the model it is {self.model}, with {self.fuel_type} fuel type")
+
+class Car(Vehicle):
+    pass
+
+class Motorcycle(Vehicle):
+    pass
+
+toyota = Car("Toyota", "Corolla", "Gasoline")
+toyota.describeVehicle()
+fazzio = Motorcycle("Fazzio", "Scooter", "Gasoline")
+fazzio.describeVehicle()
+
+### LA#11
+class Phone:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+    def describePhone(self):
+        print(f"{self.brand} the model of it is {self.model}")
+
+class Android(Phone):
+    def __init__(self, brand, model):
+        super().__init__(brand, model)
+
+Samsung = Android("Samsung", "S24")
+Samsung.describePhone()
+
+### LA#12
+class Toy:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def describeToy(self):
+        print(f"My Toy's name is {self.name} and the price of it is {self.price}")
+
+class Car(Toy):
+    def __init__(self, name, price):
+        super().__init__(name, price)
+
+Teddybear = Toy("Teddybear", "500")
+Teddybear.describeToy()
+
+### LA#13
+class Animal:
+    def __init__(self, name, type):
+        self.name = name
+        self.type = type
+
+class Fish(Animal):
+    def __init__(self, name, type, can_swim):
+        super().__init__(name, type)
+        self.can_swim = can_swim
+
+fish = Fish("Nemo", "Clownfish", True)
+print(fish.can_swim)
+
+### LA#14
+class Spiderman:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+class Tobey(Spiderman):
+    def __init__(self, name, age, movieTitle):
+        super().__init__(name, age)
+        self.movieTitle = movieTitle
+
+class Andrew(Spiderman):
+    def __init__(self, name, age, movieTitle):
+        super().__init__(name, age)
+        self.movieTitle = movieTitle
+
+class Tom(Spiderman):
+    def __init__(self, name, age, movieTitle):
+        super().__init__(name, age)
+        self.movieTitle = movieTitle
+
+tobey = Tobey("Tobey", 30, "Spider-man")
+andrew = Andrew("Andrew", 35, "The Amazing Spider-man")
+tom = Tom("Tom", 25, "Spider-man: Homecoming")
+
+print(f"{tobey.name.upper()} starred in {tobey.movieTitle}")
+print(f"{andrew.name.upper()} starred in {andrew.movieTitle}")
+print(f"{tom.name.upper()} starred in {tom.movieTitle}")
+
+# LA#15
+
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        print("Dog: Bark!")
+
+class Cat:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        print("Cat: Meow!")
+
+class Bird:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        print("Bird: Chirp!")
+
+class Fish:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        print("Fish: ...")
+
+dog = Dog("Bantay")
+cat = Cat("Luna")
+bird = Bird("Tweety")
+fish = Fish("Nemo")
+
+def animal_sounds(animal):
+    animal.speak()
+
+animals = [dog, cat, bird, fish]
+for animal in animals:
+    animal_sounds(animal)
+
+# LA#16
+
+class Appliance:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+    def operate(self):
+        print("Operating!")
+
+    def info(self):
+        print(f"Brand: {self.brand}\nModel: {self.model}")
+
+class WashingMachine(Appliance):
+    def operate(self):
+        print("Washing Clothes!")
+
+class Refrigerator(Appliance):
+    def operate(self):
+        print("Keeping food cold!")
+
+class Microwave(Appliance):
+    def operate(self):
+        print("Heating food!")
+
+washing_machine = WashingMachine("Astron", "Hanabishi")
+refrigerator = Refrigerator("Toshiba", "Condura")
+microwave = Microwave("Asahi", "Samsung")
+
+appliances = [washing_machine, refrigerator, microwave]
+for appliance in appliances:
+    appliance.info()
+    appliance.operate()
+    print()
+
+# LA#17
+
+class Player:
+    def __init__(self, name, health, attack_power):
+        self.name = name
+        self.health = health
+        self.attack_power = attack_power
+
+    def attack(self, target):
+        target.health -= self.attack_power
+        print(f"{self.name} attacked {target.name} for {self.attack_power} damage.")
+        print(f"{target.name} has {target.health} health remaining.")
+
+    def heal(self, amount):
+        self.health += amount
+        print(f"{self.name} healed for {amount} health.")
+        print(f"{self.name} now has {self.health} health.")
+
+juan = Player("Juan", 100, 20)
+mario = Player("Mario", 80, 15)
+
+while True:
+    juan.attack(mario)
+    if mario.health <= 0:
+        print(f"{juan.name} wins!")
+        break
+
+    mario.attack(juan)
+    if juan.health <= 0:
+        print(f"{mario.name} wins!")
+        break
+
+    juan.heal(10)
+    mario.heal(15)
+
+# LA#18
+
+class Adobo:
+    def __init__(self, chicken, soysauce, vinegar, potato, rekados):
+        self._chicken = chicken
+        self._soysauce = soysauce
+        self._vinegar = vinegar
+        self._potato = potato
+        self._rekados = rekados
+
+    def __str__(self):
+        return f"My Adobo has {self._chicken}, {self._soysauce}, {self._vinegar}, {self._potato}, and {self._rekados}"
+
+adobong_chicken = Adobo("chicken", "soysauce", "vinegar", "potato", "rekados")
+print(adobong_chicken)
+
+# LA#19
+
+class Adobo:
+    def __init__(self, chicken, soysauce, vinegar, potato, rekados):
+        self._chicken = chicken
+        self._soysauce = soysauce
+        self._vinegar = vinegar
+        self._potato = potato
+        self._rekados = rekados
+
+    def __str__(self):
+        return f"My Adobo has {self._chicken}, {self._soysauce}, {self._vinegar}, {self._potato}, and {self._rekados}"
+
+adobong_chicken = Adobo("chicken", "soysauce", "vinegar", "potato", "rekados")
+print(adobong_chicken._chicken)
+
+# LA#20
+
+class Adobo:
+    def __init__(self, chicken, soysauce, vinegar, potato, rekados):
+        self.__chicken = chicken
+        self.__soysauce = soysauce
+        self.__vinegar = vinegar
+        self.__potato = potato
+        self.__rekados = rekados
+
+    def __str__(self):
+        return f"My Adobo has {self.__chicken}, {self.__soysauce}, {self.__vinegar}, {self.__potato}, and {self.__rekados}"
+
+    def may_chicken_ba(self, age):
+        if age <= 100:
+            return self.__chicken
+        else:
+            return "Secret"
+
+adobong_chicken = Adobo("sliced chicken", "soysauce", "vinegar", "potato", "rekados")
+print(adobong_chicken.may_chicken_ba(60))
+
+# LA#21
+
+class Adobo:
+    def __init__(self, chicken, soysauce, vinegar, potato, rekados):
+        self.__chicken = chicken
+        self.__soysauce = soysauce
+        self.__vinegar = vinegar
+        self.__potato = potato
+        self.__rekados = rekados
+
+    def __str__(self):
+        return f"My Adobo has {self.__chicken}, {self.__soysauce}, {self.__vinegar}, {self.__potato}, and {self.__rekados}"
+
+    def may_chicken_ba(self, age):
+        if age <= 100:
+            return self.__chicken
+        else:
+            return "Secret"
+
+    def i_set_to(self, bago):
+        self.__chicken = bago
+
+adobong_chicken = Adobo("sliced chicken", "soysauce", "vinegar", "potato", "rekados")
+adobong_chicken.i_set_to("hiniwang patatu")
+print(adobong_chicken.may_chicken_ba(31))
+
+# LA#22
+
+class BirthdayParty:
+    def __init__(self, theme, special_d, secret_d):
+        self.theme = theme
+        self.special_d = special_d
+        self.secret_d = secret_d
+
+    def Allfoods(self):
+        print(f"""List of Foods
+Theme: {self.theme}
+Special Dish: {self.special_d}""")
+        self._secret()
+        print("*" * 5)
+
+    def _secret(self):
+        print(f"Secret Dish: {self.secret_d}")
+
+theme1 = BirthdayParty("Year End Party", "Spaghetti", "Fried Chicken")
+theme1.Allfoods()
+theme2 = BirthdayParty("Thanksgiving Party", "Cookies", "Juice")
+theme2.Allfoods()
+theme3 = BirthdayParty("New Year", "Fruits", "Wine")
+theme3.Allfoods()
+
+# LA#23
+
+class AnimeCharacter:
+    def __init__(self, name, ability):
+        self.name = name
+        self.ability = ability
+
+    def introduce(self, func):
+        def wrapper(*args, **kwargs):
+            print("Introducing....")
+            func(*args, **kwargs)
+            print("This character is amazing!")
+        return wrapper
+
+killua = AnimeCharacter("Killua", "Electric shock")
+
+@killua.introduce
+def character_intro():
+    print(f"I am {killua.name} and I can use {killua.ability}.")
+
+character_intro()
+
+# LA#24
+
+from abc import ABC, abstractmethod
+
+class GameCharacter(ABC):
+    @abstractmethod
+    def attack(self):
+        pass
+
+class Warrior(GameCharacter):
+    def attack(self):
+        print("Swing sword!")
+
+class Mage(GameCharacter):
+    def attack(self):
+        print("Cast a fireball!")
+
+class Archer(GameCharacter):
+    def attack(self):
+        print("Shoots an arrow!")
+
+class Healer(GameCharacter):
+    def attack(self):
+        print("Cast a healing spell on ally!")
+
+warrior = Warrior()
+warrior.attack()
+mage = Mage()
+mage.attack()
+archer = Archer()
+archer.attack()
+healer = Healer()
+healer.attack()
+
+# LA#25
+
+
+# LA#26
+
+
+# LA#27
+
+from abc import ABC, abstractmethod
+
+class Pagong(ABC):
+    @abstractmethod
+    def langoy(self):
+        pass
+
+class Leonardo(Pagong):
+    def langoy(self):
+        return "Leonardo"
+
+class MichaelAngelo(Pagong):
+    def langoy(self):
+        return "Michael Angelo"
+
+class Donatello(Pagong):
+    def langoy(self):
+        return "Donatello"
+
+class Raphael(Pagong):
+    def langoy(self):
+        return "Raphael"
+
+if __name__ == "__main__":
+    print("Ang hirap naman nito sir hahahhahaha")
+
+    rap = Raphael().langoy()
+    print(rap)
+
+    le = Leonardo().langoy()
+    print(le)
+
+    donz = Donatello().langoy()
+    print(donz)
+
+    makz = MichaelAngelo().langoy()
+    print(makz)
+
+# LA#28
+
+import tkinter as tk
+
+your_name = "FABIA_JOHNLEONNE"
+akin_to = tk.Tk()
+akin_to.title(f"OOP LA28, {your_name}")
+akin_to.geometry("500x300")
+akin_to.configure(bg="lightblue")
+
+akin_to.mainloop()
+
+# LA#29
+
+import tkinter as tk
+
+your_name = "FABIA_JOHNLEONNE"
+sec = "BSIT- 2B"
+akin_to = tk.Tk()
+akin_to.title(f"OOP")
+
+frame = tk.Frame(akin_to)
+frame.pack(pady=20)
+
+label = tk.Label(frame, text=(f"OOP LA29, {your_name} {sec}"))
+label.grid(row=0, column=0, padx=100, pady=50)
+
+akin_to.geometry("500x300")
+
+akin_to.mainloop()
+
+# LA#30
+
+import tkinter as tk
+
+your_name = "FABIA_JOHNLEONNNE"
+sec = "BSIT- 2B"
+anime = "AOT"
+akin_to = tk.Tk()
+akin_to.title(f"OOP")
+
+frame = tk.Frame(akin_to)
+frame.pack(pady=20)
+
+label = tk.Label(frame, text=(f"OOP LA30, {your_name} {sec}"))
+label.grid(row=0, column=0, padx=100, pady=50)
+
+counter = 0
+
+def display_text():
+    global counter
+    print(f"{counter} My Favorite anime is {anime}")
+    counter += 1
+
+button = tk.Button(akin_to, text="Click Me", command=display_text)
+button.pack(pady=10)
+
+akin_to.geometry("500x300")
+
+akin_to.mainloop()
