@@ -1,0 +1,376 @@
+### OE#1
+
+class Hero:
+    def __init__(self, name, role, dmg_type, health, auto_atk_dmg):
+        self.name = name
+        self.role = role
+        self.dmg_type = dmg_type
+        self.health = health
+        self.auto_atk_dmg = auto_atk_dmg
+
+    def describe(self):
+        return f"{self.name} is a {self.role} with {self.dmg_type} power."
+
+hero_mm1 = Hero("Lesley", "marksman", "attack damage", "2490", "115")
+hero_fighter1 = Hero("Zilong", "fighter", "attack damage", "2689", "123")
+hero_mg1 = Hero("Kagura", "mage", "magic damage", "2496", "130")
+hero_ass1 = Hero("Hayabusa", "assassin", "attack damage", "2429", "117")
+hero_sup1 = Hero("Diggie", "support", "magic damage", "2468", "115")
+
+for hero in [hero_mm1, hero_fighter1, hero_mg1, hero_ass1, hero_sup1]:
+    print(f"""
+    {hero.name}
+    {hero.role}
+    {hero.dmg_type}
+    {hero.health} HP
+    {hero.auto_atk_dmg} basic attack damage
+    {hero.describe()}
+    """)
+
+
+### OE#2
+
+class Phone:
+    def __init__(self, brand, model, price):
+        self.brand = brand
+        self.model = model
+        self.price = price
+
+    def __str__(self):
+        return f"Brand: {self.brand}\nModel: {self.model}\nPrice: {self.price}"
+
+    def modify_price(self, new_price):
+        self.price = new_price
+
+def create_phone():
+    brand = input("Enter brand: ")
+    model = input("Enter model: ")
+    price = float(input("Enter price: "))
+    return Phone(brand, model, price)
+
+def modify_phone(phones):
+    index = int(input("Enter phone index to modify: ")) - 1
+    if 0 <= index < len(phones):
+        new_price = float(input("Enter new price: "))
+        phones[index].modify_price(new_price)
+    else:
+        print("Invalid index.")
+
+def delete_phone(phones):
+    index = int(input("Enter phone index to delete: ")) - 1
+    if 0 <= index < len(phones):
+        del phones[index]
+    else:
+        print("Invalid index.")
+
+def main():
+    phones = []
+    while True:
+        print("\n1. Create Phone")
+        print("2. Modify Phone")
+        print("3. Delete Phone")
+        print("4. Display Phones")
+        print("5. Exit")
+        choice = int(input("Enter your choice: "))
+        if choice == 1:
+            phone = create_phone()
+            phones.append(phone)
+        elif choice == 2:
+            modify_phone(phones)
+        elif choice == 3:
+            delete_phone(phones)
+        elif choice == 4:
+            for i, phone in enumerate(phones):
+                print(f"\nPhone {i + 1}:")
+                print(phone)
+        elif choice == 5:
+            break
+        else:
+            print("Invalid choice!")
+
+if __name__ == "__main__":
+    main()
+
+
+### OE#3
+
+class SocialMediaAccount:
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+
+    def login(self):
+        print(f"Logging in as {self.username}")
+
+    def post(self):
+        print("Posting a new post")
+
+class InstagramAccount(SocialMediaAccount):
+    def __init__(self, username, password, followers):
+        super().__init__(username, password)
+        self.followers = followers
+
+    def share_story(self):
+        print("Sharing a new story")
+
+class TwitterAccount(SocialMediaAccount):
+    def __init__(self, username, password, tweets):
+        super().__init__(username, password)
+        self.tweets = tweets
+
+    def tweet(self):
+        print("Tweeting a new message")
+
+insta = InstagramAccount("insta_user", "password123", 1000)
+twitter = TwitterAccount("twitter_user", "password456", 5000)
+
+insta.login()
+insta.post()
+insta.share_story()
+twitter.login()
+twitter.post()
+twitter.tweet()
+
+
+### OE#4
+
+class Character:
+    def __init__(self, name, health, power):
+        self.name = name
+        self.health = health
+        self.power = power
+
+    def attack(self, target):
+        target.health -= self.power
+        print(f"{self.name} attacks {target.name}, reducing their health to {target.health}!")
+
+    def special_move(self):
+        pass
+
+    def defend(self, attacker):
+        reduced_damage = max(0, attacker.power - 5)  # Reduces damage by 5
+        self.health -= reduced_damage
+        print(f"{self.name} defends, reducing damage to {reduced_damage}. Health is now {self.health}.")
+
+class Warrior(Character):
+    def special_move(self):
+        print(f"{self.name} uses Shield Bash!")
+        self.power *= 2
+
+class Mage(Character):
+    def special_move(self):
+        print(f"{self.name} casts Fireball!")
+        self.power = 100
+
+class Archer(Character):
+    def special_move(self):
+        print(f"{self.name} shoots a Piercing Arrow!")
+        self.power += 15
+
+class Monster(Character):
+    def special_move(self):
+        print(f"{self.name} roars and gains extra health!")
+        self.health += 50
+
+warrior = Warrior("Warrior", 200, 20)
+mage = Mage("Mage", 150, 30)
+archer = Archer("Archer", 180, 25)
+monster = Monster("Monster", 300, 40)
+
+characters = [warrior, mage, archer, monster]
+
+print("\n--- Characters attack Monster ---")
+for char in characters[:-1]:
+    char.attack(monster)
+    char.special_move()
+
+print("\n--- Monster retaliates ---")
+for char in characters[:-1]:
+    monster.attack(char)
+    monster.special_move()
+
+print("\n--- Demonstrating polymorphism ---")
+for char in characters:
+    char.special_move()
+
+
+### OE#5
+
+GAME TITLE: CALL OF DUTY MOBILE 
+GAME OBJECT 1: M4 LMG 
+attributes: 
+- Weapon Class 
+- Damage 
+- Range 
+- Fire Mode 
+- Magazine Size 
+- Control 
+methods: 
+- Fire 
+- Reload 
+- Attach 
+- Sprint 
+GAME OBJECT 2: DINGO 
+attributes: 
+- Weapon Class 
+- Fire Mode 
+- Damage 
+- Rate Of fire 
+- Magazine Size 
+- Control 
+methods: 
+- Fire 
+- Reload 
+- Attach 
+- Sprint 
+GAME OBJECT 3: RPD 
+attributes: 
+- Weapon Class 
+- Fire Mode- Damage 
+- Rate Of fire 
+- Magazine Size 
+- Control 
+methods: 
+- Fire 
+- Reload 
+- Attach 
+- Sprint 
+GAME OBJECT 4: CHOPPER 
+attributes: 
+- Weapon Class 
+- Fire Mode 
+- Damage 
+- Rate Of fire 
+- Magazine Size 
+- Control 
+methods: 
+- Fire 
+- Reload 
+- Attach 
+- Sprint 
+GAME OBJECT 5: HADES 
+attributes: 
+- Weapon Class 
+- Fire Mode 
+- Damage 
+- Rate Of fire 
+- Magazine Size 
+- Control 
+methods: 
+- Fire 
+- Reload 
+- Attach 
+- Sprint 
+GAME OBJECTS 6: SNIPER RIFLES 
+attributes: 
+- Weapon Class 
+- Fire Mode 
+- Damage 
+- Rate Of fire- Magazine Size 
+- Control 
+methods: 
+- Fire 
+GAME OBJECT 7: ATV 
+attributes: 
+- Vehicle 
+- Seats 
+- Durability 
+methods: 
+- Drive 
+- Jump 
+- Shoot 
+GAME OBJECT 8: HELICOPTER 
+attributes: 
+- Vehicle Class 
+- Seats 
+- Speed 
+methods: 
+- Fly 
+- Hover 
+- Fire 
+GAME OBJECT 9: FRAG GRENADE 
+attributes: 
+- Equipment Class 
+-Type 
+- Damage 
+methods: 
+- Throw 
+- Cook 
+- Bounce 
+- Detonate 
+GAME OBJECT 10: TRIP MINE 
+attributes: 
+- Equipment Class 
+- Damage 
+- Type 
+- Trigger 
+methods: 
+- Deploy 
+- Trigger- Destroy 
+
+### OE#6
+
+class BankAccount:
+    def __init__(self, account_number, balance):
+        self.__account_number = account_number
+        self.__balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+        else:
+            print("Invalid deposit amount. Amount must be positive.")
+
+    def withdraw(self, amount):
+        if amount > 0 and amount <= self.__balance:
+            self.__balance -= amount
+        else:
+            print("Invalid withdrawal amount. Amount must be positive and less than or equal to the current balance.")
+
+    def display_account_info(self):
+        print(f"Account Number: {self.__account_number}")
+        print(f"Current Balance: {self.__balance}")
+
+    def set_balance(self, balance):
+        if balance >= 0:
+            self.__balance = balance
+        else:
+            print("Invalid balance. Balance must be non-negative.")
+
+account = BankAccount("808080808", 2000.00)
+account.display_account_info()
+account.deposit(700.00)
+account.display_account_info()
+account.withdraw(100.00)
+account.display_account_info()
+account.set_balance(-300.00)
+
+
+### OE#7
+
+import tkinter as tk
+
+your_name = "FABIA_JOHNLEONNE"
+sec = "BSIT- 2B"
+anime = "AOT"
+counter = 0
+
+def display_text():
+    global counter
+    print(f"{counter} My Favorite anime is {anime}")
+    counter += 1
+
+app = tk.Tk()
+app.title("OOP")
+
+frame = tk.Frame(app)
+frame.pack(pady=20)
+
+label = tk.Label(frame, text=f"OOP LA29, {your_name} {sec}")
+label.grid(row=0, column=0, padx=100, pady=50)
+
+button = tk.Button(app, text="DOT MO BEH", command=display_text)
+button.pack(pady=10)
+
+app.geometry("500x300")
+app.mainloop()
